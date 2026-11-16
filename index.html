@@ -142,16 +142,19 @@
       <h2>Drawing index</h2>
       <ul>
         <li><a href="#fast-site">fast.site <span>Sheet 1</span></a></li>
-        <li><a href="#tzone">TZone <span>Sheet 2</span></a></li>
-        <li><a href="#epass">EPASS <span>Sheet 3</span></a></li>
-        <li><a href="#chartivo">Chartivo AI <span>Sheet 4</span></a></li>
+        <li><a href="#shopify">fast.site for Shopify <span>Sheet 2</span></a></li>
+        <li><a href="#tzone">TZone <span>Sheet 3</span></a></li>
+        <li><a href="#epass">EPASS <span>Sheet 4</span></a></li>
+        <li><a href="#chartivo">Chartivo AI <span>Sheet 5</span></a></li>
+        <li><a href="#faberai">FaberAI <span>Sheet 6</span></a></li>
+        <li><a href="#tend">Tend <span>Sheet 7</span></a></li>
       </ul>
     </div>
   </section>
 
   <!-- Sheet 1 -->
   <section id="fast-site">
-    <div class="head"><h2>fast.site</h2><span class="no">Sheet 1 of 4 · Content delivery network</span></div>
+    <div class="head"><h2>fast.site</h2><span class="no">Sheet 1 of 7 · Content delivery network</span></div>
     <p class="lead">A network that makes customer websites faster and safer. It runs on our own servers in 6 locations on 4 continents, and I designed it, built it and run it.</p>
     <figure class="drawing">
       <div class="scroll">
@@ -177,14 +180,44 @@
     <div class="facts">
       <div><h3>What I did</h3><ul><li>Designed the whole system, from the data model to the release process.</li><li>Built the control plane and the edge stack, and run both in production.</li><li>Lead the response when something breaks.</li></ul></div>
       <div><h3>Built on top of it</h3><ul><li>Subscription billing with a free trial that needs no card.</li><li>A website firewall and image optimisation.</li><li>SEO and AI-search tools, and plugins for Shopify and Shopware.</li></ul></div>
-      <div><h3>Results</h3><ul><li><b>12+ min → 34 s</b><br>Database updates in production.</li><li><b>~1,000 a day → 0</b><br>Deployment errors per region.</li><li><b>39% smaller</b><br>Main JavaScript bundle of the dashboard.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>10 steps → 2 screens</b><br>Putting a new website on the network.</li><li><b>5 regions</b><br>Caching restored after a bug had quietly switched it off.</li><li><b>2 double charges</b><br>Caught before any customer was billed.</li></ul></div>
     </div>
     <p class="stack">Built with Go · Varnish · Kubernetes · PostgreSQL · Redis · Stripe · Nuxt</p>
   </section>
 
   <!-- Sheet 2 -->
+  <section id="shopify">
+    <div class="head"><h2>fast.site for Shopify</h2><span class="no">Sheet 2 of 7 · Store image optimiser</span></div>
+    <p class="lead">An app that makes the images in a Shopify store load faster. I took it from a test build to live, and through Shopify's App Store review.</p>
+    <figure class="drawing">
+      <div class="scroll">
+        <svg viewBox="0 0 720 270" role="img" aria-label="How the Shopify app serves an image. A shopper opens a store page, where a theme script asks the fast.site edge for each image. The edge fetches the original from Shopify and returns a smaller WebP or AVIF version. If the edge fails, the store shows the original image instead. App settings and billing run through Shopify.">
+          <text class="n" x="415" y="38">33–37% SMALLER THAN SHOPIFY'S OWN FORMAT</text>
+          <rect class="ln" x="10" y="60" width="100" height="52"/><text x="60" y="91">SHOPPER</text>
+          <rect class="ln" x="150" y="60" width="140" height="52"/><text x="220" y="82">STORE PAGE</text><text class="s" x="220" y="99">THEME SCRIPT</text>
+          <rect class="ln" x="340" y="60" width="150" height="52"/><text x="415" y="82">FAST.SITE EDGE</text><text class="s" x="415" y="99">WEBP · AVIF</text>
+          <rect class="ln" x="550" y="60" width="160" height="52"/><text x="630" y="82">ORIGINAL IMAGE</text><text class="s" x="630" y="99">SHOPIFY</text>
+          <path class="ln" d="M110 86H148M290 86H338M490 86H548" marker-end="url(#ah)"/>
+          <path class="dash" d="M220 112V152H630V114" marker-end="url(#ah)"/>
+          <text class="s" x="425" y="172">IF THE EDGE FAILS, THE STORE SHOWS THE ORIGINAL</text>
+          <rect class="ln" x="150" y="200" width="140" height="52"/><text x="220" y="222">APP SETTINGS</text><text class="s" x="220" y="239">REMIX</text>
+          <rect class="ln" x="340" y="200" width="150" height="52"/><text x="415" y="222">BILLING</text><text class="s" x="415" y="239">SHOPIFY BILLING</text>
+          <path class="ln" d="M290 226H338" marker-end="url(#ah)"/>
+        </svg>
+      </div>
+      <figcaption>How a store image is served, and what happens if the edge fails</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>What I did</h3><ul><li>Took the app from a test build to live in the Shopify App Store.</li><li>Rolled the image path out to all 6 fast.site locations.</li><li>Made the store script fail safe, so a store never loses its images.</li></ul></div>
+      <div><h3>Also in it</h3><ul><li>Billing through Shopify.</li><li>Fewer image downloads on each store page, 22 down to 14.</li><li>A Shopware plugin for clearing the cache, connecting an account and viewing statistics.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>33–37% smaller</b><br>Store images, compared with Shopify's own format.</li><li><b>84 → 92</b><br>Lighthouse speed score on collection pages.</li><li><b>34 of 34</b><br>Shopify App Store review checks passed.</li></ul></div>
+    </div>
+    <p class="stack">Built with Remix · TypeScript · Liquid · Shopify Billing · Go · Shopware 6</p>
+  </section>
+
+  <!-- Sheet 3 -->
   <section id="tzone">
-    <div class="head"><h2>TZone</h2><span class="no">Sheet 2 of 4 · Esports tournament platform</span></div>
+    <div class="head"><h2>TZone</h2><span class="no">Sheet 3 of 7 · Esports tournament platform</span></div>
     <p class="lead">Players join tournaments, follow matches live, and get paid through a built-in wallet. It runs in 6 languages, including Arabic.</p>
     <figure class="drawing">
       <div class="scroll">
@@ -210,14 +243,14 @@
     <div class="facts">
       <div><h3>What I did</h3><ul><li>Designed the platform around a plug-in core, so new games and tournament formats are added without touching the engine.</li><li>Built the wallet, payments and a 10-level referral commission system.</li></ul></div>
       <div><h3>Also in it</h3><ul><li>Fair-play tools: player reports, PC checks and moderation with a full record.</li><li>Sign-in with Discord, Google and Twitch.</li><li>Live notifications in 6 languages.</li></ul></div>
-      <div><h3>Results</h3><ul><li><b>~200 → 2</b><br>Database queries on one slow page.</li><li><b>626 of 626</b><br>Engine tests passing when the redesign went live.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>~200 → 2</b><br>Database queries to show a player which tournaments they can join.</li><li><b>Zero downtime</b><br>New versions go live while tournaments are running.</li></ul></div>
     </div>
     <p class="stack">Built with NestJS · TypeScript · GraphQL · PostgreSQL · Prisma · BullMQ · Keycloak · Nuxt · Google Cloud · Terraform</p>
   </section>
 
-  <!-- Sheet 3 -->
+  <!-- Sheet 4 -->
   <section id="epass">
-    <div class="head"><h2>EPASS</h2><span class="no">Sheet 3 of 4 · Player identity checks</span></div>
+    <div class="head"><h2>EPASS</h2><span class="no">Sheet 4 of 7 · Player identity checks</span></div>
     <p class="lead">EPASS verifies who an esports player is, so a platform can trust them without ever seeing their documents. I redesigned and secured it. Live since October 2026.</p>
     <figure class="drawing">
       <div class="scroll">
@@ -239,14 +272,14 @@
     <div class="facts">
       <div><h3>What I did</h3><ul><li>Took over an existing service and redesigned how platforms connect to it.</li><li>Built a real consent step, so players decide what each platform may ask.</li></ul></div>
       <div><h3>Made safer</h3><ul><li>Moved identity photos into private storage, opened only through short-lived links.</li><li>Every staff view of a document is recorded.</li><li>Rebuilt the frontend in 6 languages.</li></ul></div>
-      <div><h3>Results</h3><ul><li><b>65 → 326</b><br>Passing automated tests.</li><li><b>4 repositories</b><br>Released together, with backups and a way back.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>140 identity photos</b><br>Taken out of public reach in production.</li><li><b>5 security holes closed</b><br>Including account takeover and a way around two-step sign-in.</li></ul></div>
     </div>
     <p class="stack">Built with NestJS · Next.js · OAuth2 with PKCE · MySQL · Redis</p>
   </section>
 
-  <!-- Sheet 4 -->
+  <!-- Sheet 5 -->
   <section id="chartivo">
-    <div class="head"><h2>Chartivo AI</h2><span class="no">Sheet 4 of 4 · AI chart analysis</span></div>
+    <div class="head"><h2>Chartivo AI</h2><span class="no">Sheet 5 of 7 · AI chart analysis</span></div>
     <p class="lead">A trader uploads a price chart and gets a structured read of the market back. I built and launched it on my own.</p>
     <figure class="drawing">
       <div class="scroll">
@@ -269,9 +302,67 @@
     <div class="facts">
       <div><h3>What I did</h3><ul><li>Designed, built and launched the whole product alone.</li><li>Built the pipeline that turns a chart image into a structured analysis.</li></ul></div>
       <div><h3>What a trader gets</h3><ul><li>Trend, support and resistance, and indicator readings.</li><li>A view across several timeframes and a 1-week outlook.</li><li>Paid for with credits.</li></ul></div>
-      <div><h3>Results</h3><ul><li><b>Live</b><br>At chartivoai.com.</li><li><b>In the press</b><br>Covered by Digital Journal and ABC News.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>14+ languages</b><br>Traders get the analysis in their own language.</li><li><b>In the press</b><br>Covered by Digital Journal and ABC News.</li></ul></div>
     </div>
     <p class="stack">Built with NestJS · PostgreSQL · LLM pipelines · Pinecone · Stripe · <a href="https://chartivoai.com" rel="noopener">chartivoai.com</a></p>
+  </section>
+
+  <!-- Sheet 6 -->
+  <section id="faberai">
+    <div class="head"><h2>FaberAI</h2><span class="no">Sheet 6 of 7 · Real-time AI coaching</span></div>
+    <p class="lead">An AI coach that watches how a person moves and gives feedback while they are still moving.</p>
+    <figure class="drawing">
+      <div class="scroll">
+        <svg viewBox="0 0 720 270" role="img" aria-label="How FaberAI gives feedback. An iPhone app sends live video over WebRTC to movement models that run close to the camera. Their readings go to coaching agents built on GPT-4, which reuse earlier answers from a Redis cache. Feedback returns to the phone in under 2 seconds.">
+          <path class="ln" d="M615 70V44H75V68" marker-end="url(#ah)"/>
+          <text class="n" x="345" y="34">FEEDBACK IN UNDER 2 SECONDS</text>
+          <rect class="ln" x="10" y="70" width="130" height="52"/><text x="75" y="92">IPHONE APP</text><text class="s" x="75" y="109">CAMERA</text>
+          <rect class="ln" x="180" y="70" width="110" height="52"/><text x="235" y="92">LIVE VIDEO</text><text class="s" x="235" y="109">WEBRTC</text>
+          <rect class="ln" x="330" y="70" width="150" height="52"/><text x="405" y="92">MOVEMENT MODELS</text><text class="s" x="405" y="109">COMPUTER VISION</text>
+          <rect class="ln" x="520" y="70" width="190" height="52"/><text x="615" y="92">COACHING AGENTS</text><text class="s" x="615" y="109">GPT-4</text>
+          <path class="ln" d="M140 96H178M290 96H328M480 96H518" marker-end="url(#ah)"/>
+          <text class="s" x="405" y="144">RUN CLOSE TO THE CAMERA</text>
+          <rect class="ln" x="520" y="200" width="190" height="52"/><text x="615" y="222">ANSWER CACHE</text><text class="s" x="615" y="239">REDIS</text>
+          <path class="ln" d="M615 124V198" marker-start="url(#ah)" marker-end="url(#ah)"/>
+          <text class="s" x="440" y="230">SIMILAR QUESTIONS</text><text class="s" x="440" y="247">ARE NOT ASKED TWICE</text>
+        </svg>
+      </div>
+      <figcaption>From a movement on camera to feedback on it</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>What I did</h3><ul><li>Designed how live video, movement models and language models work together.</li><li>Built the routing that picks the right prompt for each movement.</li></ul></div>
+      <div><h3>How it stays fast</h3><ul><li>Movement models run close to the camera.</li><li>Answers to similar questions come from a cache.</li><li>Several agents share the work, so no single step holds up the answer.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>Under 2 seconds</b><br>From a movement to feedback on it.</li><li><b>3 parts, one system</b><br>A native iPhone app, the backend and a web dashboard.</li></ul></div>
+    </div>
+    <p class="stack">Built with NestJS · Python · WebRTC · GPT-4 · Redis · Swift</p>
+  </section>
+
+  <!-- Sheet 7 -->
+  <section id="tend">
+    <div class="head"><h2>Tend</h2><span class="no">Sheet 7 of 7 · Shared family care app · In progress</span></div>
+    <p class="lead">One shared care plan for a person who needs looking after: medicines, doctor visits, water, meals and a health log. Everyone in the care team gets the reminders on their own phone. A personal project, started in November 2026.</p>
+    <figure class="drawing">
+      <div class="scroll">
+        <svg viewBox="0 0 720 270" role="img" aria-label="How Tend turns a prescription into reminders. A photo of a prescription is read by Claude, which pulls out the medicines, doses and times. A person checks them in a form before anything is saved to the care plan, of which there is one per person. The plan sends reminders, which also work offline, to the care team on their own phones.">
+          <text class="n" x="440" y="38">NOTHING IS SAVED UNCHECKED</text>
+          <rect class="ln" x="10" y="60" width="120" height="52"/><text x="70" y="82">PRESCRIPTION</text><text class="s" x="70" y="99">PHOTO</text>
+          <rect class="ln" x="160" y="60" width="170" height="52"/><text x="245" y="82">CLAUDE READS IT</text><text class="s" x="245" y="99">MEDICINES · DOSES · TIMES</text>
+          <rect class="ln" x="370" y="60" width="140" height="52"/><text x="440" y="82">FORM</text><text class="s" x="440" y="99">A PERSON CHECKS IT</text>
+          <rect class="ln" x="540" y="60" width="170" height="52"/><text x="625" y="82">CARE PLAN</text><text class="s" x="625" y="99">ONE PER PERSON</text>
+          <path class="ln" d="M130 86H158" marker-end="url(#ah)"/><path class="ln" d="M330 86H368" marker-end="url(#ah)"/><path class="ln" d="M510 86H538" marker-end="url(#ah)"/>
+          <rect class="ln" x="540" y="196" width="170" height="52"/><text x="625" y="218">REMINDERS</text><text class="s" x="625" y="235">ALSO WORK OFFLINE</text>
+          <rect class="ln" x="300" y="196" width="190" height="52"/><text x="395" y="218">CARE TEAM</text><text class="s" x="395" y="235">ON THEIR OWN PHONES</text>
+          <path class="ln" d="M625 112V194" marker-end="url(#ah)"/><path class="ln" d="M540 222H492" marker-end="url(#ah)"/>
+        </svg>
+      </div>
+      <figcaption>From a photo of a prescription to a reminder on every phone</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>What I am building</h3><ul><li>The care plan and the reminders that reach the whole care team.</li><li>Prescription scanning: Claude reads the photo, and a person checks the result before it is saved.</li></ul></div>
+      <div><h3>Also in it</h3><ul><li>Three roles: full access, caregiver and view only.</li><li>Phone reminders that work without a connection.</li><li>Web push for people who use it in a browser.</li></ul></div>
+      <div><h3>Where it stands</h3><ul><li><b>In progress</b><br>Started November 2026, not yet released.</li><li><b>Web, iPhone, Android</b><br>The same care plan on every device.</li></ul></div>
+    </div>
+    <p class="stack">Built with TypeScript · Next.js · Expo · Web push · Claude API</p>
   </section>
 
   <section id="leadership">
@@ -294,7 +385,7 @@
       <li><span class="when">Jun 2022 – Sep 2023</span><div><b>Full Stack Developer</b><p>PseudoSoft · Lahore</p></div></li>
       <li><span class="when">Mar 2021 – Jun 2022</span><div><b>Full Stack Developer</b><p>AxcelerateAi · Lahore</p></div></li>
     </ul>
-    <p class="more"><b>On the drawing board now:</b> Tend, a family care app for web and phone, and Rotation, an app that plans outfits from the clothes you own and lets you resell them.</p>
+    <p class="more"><b>On the drawing board now:</b> Rotation, an app that plans outfits from the clothes you own and lets you resell them.</p>
     <p class="more"><b>Education:</b> BSc in Computer Science, Information Technology University, Lahore, 2018 to 2022.</p>
   </section>
 
