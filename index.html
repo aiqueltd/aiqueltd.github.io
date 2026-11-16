@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Huraira Mujahid</title>
+<meta name="description" content="Huraira Mujahid, Engineering Lead and Solution Architect. I design systems and lead the team that builds them.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+  /* Layout: one blueprint sheet. Cobalt field with a drafting grid; every project is a numbered drawing with its diagram first and plain words beside it; the footer is a drawing title block. */
+  :root {
+    color-scheme: dark;
+    --bg: #1b46c2;
+    --bg-deep: #173ba6;
+    --grid: rgba(255, 255, 255, 0.1);
+    --ink: #f4f7ff;
+    --soft: #c8d4f8;
+    --note: #ffd84d;
+    --cond: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    --text: "Barlow", "Segoe UI", Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; color: var(--ink); font: 400 18px/1.55 var(--text);
+    background-color: var(--bg);
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .sheet-wrap {
+    max-width: 1160px; margin: 0 auto; padding-block: 28px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: flex; flex-direction: column; gap: clamp(56px, 8vw, 96px);
+  }
+  h1, h2, h3, p, ul, dl, dd, figure { margin: 0; }
+  ul { padding: 0; list-style: none; }
+  a { color: inherit; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--note); outline-offset: 3px; }
+  .cond { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* top bar */
+  .bar { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; align-items: baseline; font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+  .bar nav { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+  .bar nav a { color: var(--soft); text-decoration: none; }
+  .bar nav a:hover { color: var(--ink); text-decoration: underline; }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: 7fr 4fr; gap: 40px; align-items: end; }
+  .hero > * { min-width: 0; }
+  .hero h1 { font-family: var(--cond); text-transform: uppercase; font-weight: 700; font-size: clamp(64px, 12vw, 152px); line-height: 0.88; letter-spacing: 0.005em; }
+  .hero .role { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; font-size: clamp(20px, 2.4vw, 26px); color: var(--note); margin-top: 20px; }
+  .hero .say { margin-top: 16px; font-size: clamp(19px, 2vw, 22px); max-width: 34ch; }
+  .index { border: 1.5px solid var(--ink); background: var(--bg); }
+  .index h2 { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; font-size: 15px; font-weight: 600; color: var(--soft); padding: 8px 14px; border-bottom: 1.5px solid var(--ink); }
+  .index a { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--soft); text-decoration: none; font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.05em; font-size: 20px; font-weight: 600; }
+  .index li:last-child a { border-bottom: 0; }
+  .index a span { color: var(--note); font-size: 15px; font-weight: 500; align-self: center; white-space: nowrap; }
+  .index a:hover { background: var(--bg-deep); }
+
+  /* section heading */
+  .head { display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: baseline; justify-content: space-between; border-bottom: 1.5px solid var(--ink); padding-bottom: 8px; margin-bottom: 20px; }
+  .head h2 { font-family: var(--cond); text-transform: uppercase; font-weight: 700; letter-spacing: 0.02em; font-size: clamp(34px, 5vw, 56px); line-height: 1; }
+  .head .no { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; color: var(--note); font-size: 16px; }
+  .lead { font-size: clamp(19px, 2vw, 22px); max-width: 60ch; margin-bottom: 24px; }
+
+  /* drawing */
+  .drawing { border: 1.5px solid var(--ink); background: var(--bg); padding: 12px; }
+  .drawing .scroll { overflow-x: auto; }
+  .drawing svg { display: block; width: 100%; min-width: 620px; height: auto; }
+  .drawing figcaption { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; font-size: 14px; color: var(--soft); border-top: 1px solid var(--ink); margin-top: 10px; padding-top: 8px; }
+  svg .ln { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+  svg .dash { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  svg .dim { fill: none; stroke: var(--note); stroke-width: 1; }
+  svg .arrowhead { fill: var(--ink); }
+  svg text { font-family: var(--cond); font-size: 14px; letter-spacing: 0.7px; fill: var(--ink); text-anchor: middle; }
+  svg text.s { fill: var(--soft); font-size: 13px; }
+  svg text.n { fill: var(--note); font-size: 13px; }
+
+  /* facts under a drawing */
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 24px; }
+  .facts > div { min-width: 0; }
+  .facts h3, .lbl { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; font-size: 15px; font-weight: 600; color: var(--soft); margin-bottom: 8px; }
+  .facts li { padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .facts li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 9px; height: 1.5px; background: var(--note); }
+  .facts b { font-family: var(--cond); font-weight: 600; font-size: 22px; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+  .stack { margin-top: 20px; font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; font-size: 15px; color: var(--soft); }
+  .stack a { color: var(--ink); }
+
+  /* leadership and experience */
+  .two { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+  .two li { padding: 16px 0; border-bottom: 1px solid var(--soft); min-width: 0; }
+  .two b { display: block; font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.04em; font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .jobs li { display: grid; grid-template-columns: 200px 1fr; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--soft); align-items: baseline; }
+  .jobs li > * { min-width: 0; }
+  .jobs .when { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px; color: var(--note); font-variant-numeric: tabular-nums; }
+  .jobs b { font-family: var(--cond); text-transform: uppercase; letter-spacing: 0.04em; font-size: 22px; font-weight: 600; }
+  .jobs p { color: var(--soft); }
+  .more { margin-top: 20px; color: var(--soft); max-width: 70ch; }
+  .more b { color: var(--ink); font-weight: 600; }
+
+  /* title block */
+  .tb { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; border: 1.5px solid var(--ink); background: var(--bg); }
+  .tb > div { padding: 12px 16px; border-right: 1px solid var(--ink); min-width: 0; overflow-wrap: anywhere; }
+  .tb > div:last-child { border-right: 0; }
+  .tb .big { font-family: var(--cond); text-transform: uppercase; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1; }
+  .tb .lbl { font-size: 13px; margin-bottom: 4px; }
+  .tb .mail { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 10px; }
+  .tb button { font: 500 15px var(--cond); text-transform: uppercase; letter-spacing: 0.06em; color: var(--bg); background: var(--note); border: 0; padding: 6px 12px; cursor: pointer; }
+  .tb button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  @media (max-width: 820px) {
+    body { font-size: 17px; }
+    .hero { grid-template-columns: 1fr; align-items: start; }
+    .facts { grid-template-columns: 1fr; gap: 20px; }
+    .two { grid-template-columns: 1fr; }
+    .jobs li { grid-template-columns: 1fr; }
+    .tb { grid-template-columns: 1fr 1fr; }
+    .tb > div:first-child { grid-column: 1 / -1; border-right: 0; border-bottom: 1px solid var(--ink); }
+    .tb > div:nth-child(2) { grid-column: 1 / -1; border-right: 0; border-bottom: 1px solid var(--ink); }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0 0L10 5L0 10z"/></marker></defs></svg>
+
+<div class="sheet-wrap">
+  <header class="bar">
+    <span>Huraira Mujahid</span>
+    <nav aria-label="Sections"><a href="#drawings">Drawings</a><a href="#leadership">Leadership</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Huraira Mujahid</h1>
+      <p class="role">Engineering Lead &amp; Solution Architect</p>
+      <p class="say">I design systems and lead the team that builds them. Each project below opens with the drawing of how it works.</p>
+    </div>
+    <div class="index" id="drawings">
+      <h2>Drawing index</h2>
+      <ul>
+        <li><a href="#fast-site">fast.site <span>Sheet 1</span></a></li>
+        <li><a href="#tzone">TZone <span>Sheet 2</span></a></li>
+        <li><a href="#epass">EPASS <span>Sheet 3</span></a></li>
+        <li><a href="#chartivo">Chartivo AI <span>Sheet 4</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Sheet 1 -->
+  <section id="fast-site">
+    <div class="head"><h2>fast.site</h2><span class="no">Sheet 1 of 4 · Content delivery network</span></div>
+    <p class="lead">A network that makes customer websites faster and safer. It runs on our own servers in 6 locations on 4 continents, and I designed it, built it and run it.</p>
+    <figure class="drawing">
+      <div class="scroll">
+        <svg viewBox="0 0 720 270" role="img" aria-label="How a request travels through fast.site. A visitor's request is sent by DNS to the nearest of 6 edge locations, where the firewall and image optimisation run. The edge is backed by a shield cache in front of the customer's website. A control plane written in Go sends cache rules to the edge, stores data in PostgreSQL and Redis, and handles billing through Stripe.">
+          <path class="dim" d="M320 34H460M320 28V40M460 28V40"/>
+          <text class="n" x="390" y="22">6 LOCATIONS · 4 CONTINENTS</text>
+          <rect class="ln" x="10" y="60" width="100" height="52"/><text x="60" y="91">VISITOR</text>
+          <rect class="ln" x="150" y="60" width="130" height="52"/><text x="215" y="82">DNS PICKS THE</text><text x="215" y="99">NEAREST LOCATION</text>
+          <rect class="ln" x="326" y="54" width="134" height="52"/><rect class="ln" x="320" y="60" width="134" height="52" style="fill:var(--bg)"/><text x="387" y="82">EDGE LOCATION</text><text x="387" y="99">CACHE</text>
+          <rect class="ln" x="494" y="60" width="100" height="52"/><text x="544" y="82">SHIELD</text><text x="544" y="99">CACHE</text>
+          <rect class="ln" x="628" y="60" width="82" height="52"/><text x="669" y="82">CUSTOMER</text><text x="669" y="99">WEBSITE</text>
+          <path class="ln" d="M110 86H148M280 86H318M454 86H492M594 86H626" marker-end="url(#ah)"/>
+          <text class="s" x="387" y="132">FIREWALL · IMAGE OPTIMISATION</text>
+          <rect class="ln" x="150" y="196" width="130" height="52"/><text x="215" y="218">BILLING</text><text class="s" x="215" y="235">STRIPE</text>
+          <rect class="ln" x="320" y="196" width="134" height="52"/><text x="387" y="218">CONTROL PLANE</text><text class="s" x="387" y="235">GO</text>
+          <rect class="ln" x="494" y="196" width="216" height="52"/><text x="602" y="218">ACCOUNTS AND USAGE DATA</text><text class="s" x="602" y="235">POSTGRESQL · REDIS</text>
+          <path class="dash" d="M387 196V142" marker-end="url(#ah)"/><text class="s" x="432" y="172">CACHE RULES</text>
+          <path class="ln" d="M320 222H282M454 222H492" marker-end="url(#ah)"/>
+        </svg>
+      </div>
+      <figcaption>How a request travels, and what controls it</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>What I did</h3><ul><li>Designed the whole system, from the data model to the release process.</li><li>Built the control plane and the edge stack, and run both in production.</li><li>Lead the response when something breaks.</li></ul></div>
+      <div><h3>Built on top of it</h3><ul><li>Subscription billing with a free trial that needs no card.</li><li>A website firewall and image optimisation.</li><li>SEO and AI-search tools, and plugins for Shopify and Shopware.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>12+ min → 34 s</b><br>Database updates in production.</li><li><b>~1,000 a day → 0</b><br>Deployment errors per region.</li><li><b>39% smaller</b><br>Main JavaScript bundle of the dashboard.</li></ul></div>
+    </div>
+    <p class="stack">Built with Go · Varnish · Kubernetes · PostgreSQL · Redis · Stripe · Nuxt</p>
+  </section>
+
+  <!-- Sheet 2 -->
+  <section id="tzone">
+    <div class="head"><h2>TZone</h2><span class="no">Sheet 2 of 4 · Esports tournament platform</span></div>
+    <p class="lead">Players join tournaments, follow matches live, and get paid through a built-in wallet. It runs in 6 languages, including Arabic.</p>
+    <figure class="drawing">
+      <div class="scroll">
+        <svg viewBox="0 0 720 270" role="img" aria-label="How TZone is built. Player, host and admin apps talk to a GraphQL API that pushes live updates. The API drives a tournament kernel, which game adapters and format plug-ins extend. Sign-in goes through Keycloak. A wallet handles payments and feeds a referral commission queue, and everything is stored in PostgreSQL.">
+          <rect class="ln" x="10" y="52" width="150" height="52"/><text x="85" y="74">PLAYER, HOST AND</text><text x="85" y="91">ADMIN APPS</text>
+          <rect class="ln" x="206" y="52" width="124" height="52"/><text x="268" y="74">GRAPHQL API</text><text class="s" x="268" y="91">LIVE UPDATES</text>
+          <rect class="ln" x="376" y="52" width="140" height="52"/><text x="446" y="74">TOURNAMENT</text><text x="446" y="91">KERNEL</text>
+          <rect class="ln" x="566" y="30" width="144" height="38"/><text x="638" y="54">GAME ADAPTERS</text>
+          <rect class="ln" x="566" y="88" width="144" height="38"/><text x="638" y="112">FORMAT PLUG-INS</text>
+          <path class="ln" d="M160 78H204M330 78H374" marker-end="url(#ah)"/>
+          <path class="ln" d="M564 49L518 70M564 107L518 86" marker-end="url(#ah)"/>
+          <text class="n" x="638" y="146">NEW GAMES PLUG IN HERE</text>
+          <rect class="ln" x="10" y="196" width="150" height="52"/><text x="85" y="218">SIGN-IN</text><text class="s" x="85" y="235">KEYCLOAK</text>
+          <rect class="ln" x="206" y="196" width="124" height="52"/><text x="268" y="218">WALLET AND</text><text x="268" y="235">PAYMENTS</text>
+          <rect class="ln" x="376" y="196" width="140" height="52"/><text x="446" y="218">REFERRAL</text><text x="446" y="235">COMMISSIONS</text>
+          <rect class="ln" x="566" y="196" width="144" height="52"/><text x="638" y="218">DATABASE</text><text class="s" x="638" y="235">POSTGRESQL</text>
+          <path class="ln" d="M85 104V194M268 104V194M330 222H374M516 222H564" marker-end="url(#ah)"/>
+          <path class="dash" d="M638 126V194" marker-end="url(#ah)"/>
+        </svg>
+      </div>
+      <figcaption>The plug-in core, and the money path beside it</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>What I did</h3><ul><li>Designed the platform around a plug-in core, so new games and tournament formats are added without touching the engine.</li><li>Built the wallet, payments and a 10-level referral commission system.</li></ul></div>
+      <div><h3>Also in it</h3><ul><li>Fair-play tools: player reports, PC checks and moderation with a full record.</li><li>Sign-in with Discord, Google and Twitch.</li><li>Live notifications in 6 languages.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>~200 → 2</b><br>Database queries on one slow page.</li><li><b>626 of 626</b><br>Engine tests passing when the redesign went live.</li></ul></div>
+    </div>
+    <p class="stack">Built with NestJS · TypeScript · GraphQL · PostgreSQL · Prisma · BullMQ · Keycloak · Nuxt · Google Cloud · Terraform</p>
+  </section>
+
+  <!-- Sheet 3 -->
+  <section id="epass">
+    <div class="head"><h2>EPASS</h2><span class="no">Sheet 3 of 4 · Player identity checks</span></div>
+    <p class="lead">EPASS verifies who an esports player is, so a platform can trust them without ever seeing their documents. I redesigned and secured it. Live since October 2026.</p>
+    <figure class="drawing">
+      <div class="scroll">
+        <svg viewBox="0 0 720 250" role="img" aria-label="How EPASS answers a platform. An esports platform asks, the player allows it on a consent screen, and the EPASS identity service checks the player's documents, which are kept in private storage with five-minute links and logged views. The platform receives only one answer: verified or not.">
+          <path class="ln" d="M440 104V48H75V102" marker-end="url(#ah)"/>
+          <text class="n" x="258" y="38">THE ONLY ANSWER SENT BACK: VERIFIED OR NOT</text>
+          <rect class="ln" x="10" y="104" width="130" height="56"/><text x="75" y="128">ESPORTS</text><text x="75" y="145">PLATFORM</text>
+          <rect class="ln" x="190" y="104" width="136" height="56"/><text x="258" y="128">CONSENT SCREEN</text><text class="s" x="258" y="145">PLAYER ALLOWS</text>
+          <rect class="ln" x="376" y="104" width="140" height="56"/><text x="446" y="128">EPASS</text><text x="446" y="145">IDENTITY SERVICE</text>
+          <rect class="ln" x="566" y="104" width="144" height="56"/><text x="638" y="128">ID DOCUMENTS</text><text class="s" x="638" y="145">PRIVATE STORAGE</text>
+          <path class="ln" d="M140 132H188M326 132H374M516 132H564" marker-end="url(#ah)"/>
+          <text class="s" x="75" y="184">NEVER SEES DOCUMENTS</text>
+          <text class="s" x="258" y="184">SINGLE-USE CODES</text>
+          <text class="s" x="638" y="184">5-MINUTE LINKS</text><text class="s" x="638" y="201">EVERY VIEW LOGGED</text>
+        </svg>
+      </div>
+      <figcaption>What a platform asks, and the one thing it gets back</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>What I did</h3><ul><li>Took over an existing service and redesigned how platforms connect to it.</li><li>Built a real consent step, so players decide what each platform may ask.</li></ul></div>
+      <div><h3>Made safer</h3><ul><li>Moved identity photos into private storage, opened only through short-lived links.</li><li>Every staff view of a document is recorded.</li><li>Rebuilt the frontend in 6 languages.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>65 → 326</b><br>Passing automated tests.</li><li><b>4 repositories</b><br>Released together, with backups and a way back.</li></ul></div>
+    </div>
+    <p class="stack">Built with NestJS · Next.js · OAuth2 with PKCE · MySQL · Redis</p>
+  </section>
+
+  <!-- Sheet 4 -->
+  <section id="chartivo">
+    <div class="head"><h2>Chartivo AI</h2><span class="no">Sheet 4 of 4 · AI chart analysis</span></div>
+    <p class="lead">A trader uploads a price chart and gets a structured read of the market back. I built and launched it on my own.</p>
+    <figure class="drawing">
+      <div class="scroll">
+        <svg viewBox="0 0 720 270" role="img" aria-label="How Chartivo AI works. A trader uploads a chart to the API, which checks credits through Stripe and stores the image. An AI analysis pipeline reads the chart, uses past analyses kept in Pinecone, and returns a structured analysis with trend, key levels and a one-week outlook in more than 14 languages.">
+          <text class="n" x="622" y="38">14+ LANGUAGES</text>
+          <rect class="ln" x="10" y="56" width="130" height="52"/><text x="75" y="78">TRADER UPLOADS</text><text x="75" y="95">A CHART</text>
+          <rect class="ln" x="190" y="56" width="110" height="52"/><text x="245" y="78">API</text><text class="s" x="245" y="95">NESTJS</text>
+          <rect class="ln" x="350" y="56" width="140" height="52"/><text x="420" y="78">AI ANALYSIS</text><text x="420" y="95">PIPELINE</text>
+          <rect class="ln" x="540" y="56" width="170" height="52"/><text x="625" y="78">STRUCTURED ANALYSIS</text><text class="s" x="625" y="95">TREND · LEVELS · OUTLOOK</text>
+          <path class="ln" d="M140 82H188M300 82H348M490 82H538" marker-end="url(#ah)"/>
+          <rect class="ln" x="10" y="196" width="130" height="52"/><text x="75" y="218">CHART IMAGES</text><text class="s" x="75" y="235">FILE STORAGE</text>
+          <rect class="ln" x="190" y="196" width="110" height="52"/><text x="245" y="218">CREDITS</text><text class="s" x="245" y="235">STRIPE</text>
+          <rect class="ln" x="350" y="196" width="140" height="52"/><text x="420" y="218">PAST ANALYSES</text><text class="s" x="420" y="235">PINECONE</text>
+          <path class="ln" d="M75 108V194M245 108V194" marker-end="url(#ah)"/>
+          <path class="ln" d="M420 110V194" marker-start="url(#ah)" marker-end="url(#ah)"/>
+        </svg>
+      </div>
+      <figcaption>From an uploaded chart to a structured answer</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>What I did</h3><ul><li>Designed, built and launched the whole product alone.</li><li>Built the pipeline that turns a chart image into a structured analysis.</li></ul></div>
+      <div><h3>What a trader gets</h3><ul><li>Trend, support and resistance, and indicator readings.</li><li>A view across several timeframes and a 1-week outlook.</li><li>Paid for with credits.</li></ul></div>
+      <div><h3>Results</h3><ul><li><b>Live</b><br>At chartivoai.com.</li><li><b>In the press</b><br>Covered by Digital Journal and ABC News.</li></ul></div>
+    </div>
+    <p class="stack">Built with NestJS · PostgreSQL · LLM pipelines · Pinecone · Stripe · <a href="https://chartivoai.com" rel="noopener">chartivoai.com</a></p>
+  </section>
+
+  <section id="leadership">
+    <div class="head"><h2>Leadership</h2><span class="no">How I run a team</span></div>
+    <ul class="two">
+      <li><b>I hire the engineers</b>I have built engineering teams at two companies, from the first interview to the first shipped change.</li>
+      <li><b>I plan and assign the work</b>Everyone knows what they own, and I track progress so problems surface early.</li>
+      <li><b>Nothing ships unreviewed</b>I approve every code change before it reaches production.</li>
+      <li><b>I mentor, and I still build</b>I write code every week, so my advice comes from the same codebase the team works in.</li>
+      <li><b>AI agents, under a strict review</b>My team's daily development runs on Claude Code agents, with an independent review pass on every change.</li>
+      <li><b>460+ changes in about a year</b>Merged across 19 repositories, at the pace of a much larger team.</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <div class="head"><h2>Experience</h2><span class="no">2021 to today</span></div>
+    <ul class="jobs">
+      <li><span class="when">Aug 2025 – Present</span><div><b>Engineering Lead &amp; Solution Architect</b><p>ModernIce · Germany, remote</p></div></li>
+      <li><span class="when">Sep 2023 – Aug 2025</span><div><b>Lead Full Stack Developer</b><p>Bizremark · Lahore. Built the engineering team and led AI features for client products.</p></div></li>
+      <li><span class="when">Jun 2022 – Sep 2023</span><div><b>Full Stack Developer</b><p>PseudoSoft · Lahore</p></div></li>
+      <li><span class="when">Mar 2021 – Jun 2022</span><div><b>Full Stack Developer</b><p>AxcelerateAi · Lahore</p></div></li>
+    </ul>
+    <p class="more"><b>On the drawing board now:</b> Tend, a family care app for web and phone, and Rotation, an app that plans outfits from the clothes you own and lets you resell them.</p>
+    <p class="more"><b>Education:</b> BSc in Computer Science, Information Technology University, Lahore, 2018 to 2022.</p>
+  </section>
+
+  <footer class="tb" id="contact">
+    <div>
+      <div class="lbl">Contact</div>
+      <div class="big">Hiring a team lead or architect?</div>
+      <div class="mail"><a href="mailto:huraira12@gmail.com" id="mail">huraira12@gmail.com</a><button type="button" id="copy">Copy email</button></div>
+    </div>
+    <div><div class="lbl">Drawn by</div>Huraira Mujahid<br>Lahore, Pakistan</div>
+    <div><div class="lbl">Works</div>Fully remote</div>
+    <div><div class="lbl">Elsewhere</div><a href="https://www.linkedin.com/in/huraira-mujahid-82600b367/" rel="noopener">LinkedIn</a><br><a href="https://github.com/aiqueltd" rel="noopener">GitHub</a></div>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById("copy");
+    var mail = document.getElementById("mail");
+    btn.addEventListener("click", function () {
+      var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); };
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents(mail);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "Selected, press Ctrl+C";
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(mail.textContent).then(done, fallback); } else { fallback(); }
+    });
+  })();
+</script>
+</body>
+</html>
